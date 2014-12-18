@@ -1,0 +1,7 @@
+input{
+  display: block;
+}
+.error{
+  font-size: 50em;
+  color: red;
+}

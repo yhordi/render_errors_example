@@ -1,0 +1,29 @@
+<% require 'Faker' %>
+<h1>
+<%= Faker::Company.name %>
+</h1>
+<h2>
+  <%= Faker::Company.catch_phrase %>
+</h2>
+<form action="/users" method="post">
+  <input type="text" name="username" placeholder="username">
+  <input type="text" name="realname" placeholder="realname">
+  <input type="text" name="password" placeholder="password">
+  <input type="submit">
+</form>
+
+<h2>Users:</h2>
+<% @users.each do |user| %>
+<ul>
+  <li>username: <%= user.username %></li>
+  <li>password: <%= user.password %></li>
+  <li>realname: <%= user.realname %></li>
+</ul>
+<% end %>
+<div class="error">
+  <% if session["flash"].length >= 1 %>
+    <% session["flash"].each do |error| %>
+      <%= error + ". " %>
+    <% end %>
+  <% end%>
+</div>
